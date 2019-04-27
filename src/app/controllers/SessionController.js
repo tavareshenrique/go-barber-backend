@@ -20,6 +20,7 @@ class SessionController {
     }
 
     req.session.user = user
+    console.log(user)
 
     return res.redirect('/app/dashboard')
   }
