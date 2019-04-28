@@ -1,10 +1,25 @@
 const { User, Appointment } = require('../models')
+const { Op } = require('sequelize')
+const moment = require('moment')
 
 class AppointmentController {
   async index (req, res) {
+    let today = new Date()
+    let dd = String(today.getDate()).padStart(2, '0')
+    let mm = String(today.getMonth() + 1).padStart(2, '0')
+    let yyyy = today.getFullYear()
+
+    let date = moment(yyyy + '-' + mm + '-' + dd)
+
     const appointments = await Appointment.findAll({
       where: {
-        provider_id: req.params.provider
+        provider_id: req.params.provider,
+        date: {
+          [Op.between]: [
+            date.startOf('day').format(),
+            date.endOf('day').format()
+          ]
+        }
       },
       attributes: ['date'],
       include: [
@@ -16,8 +31,6 @@ class AppointmentController {
         }
       ]
     })
-
-    console.log(appointments)
 
     res.render('appointments/appointmentsBook', { appointments })
   }
@@ -32,8 +45,6 @@ class AppointmentController {
     const { id } = req.session.user
     const { provider } = req.params
     const { date } = req.body
-
-    console.log(req.body.date)
 
     await Appointment.create({
       user_id: id,

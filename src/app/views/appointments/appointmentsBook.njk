@@ -5,9 +5,9 @@
     <strong>Olá, {{user.name}}</strong>
     <p>Esses são os seus clientes:</p>
 
+    <input type="text" class="flatpickr" placeholder="Escolha uma data" />
     <ul class="providers">
       {% for appointment in appointments %}
-
         <li class="provider">
           <div>
             <img src="/files/{{appointment.UserId.avatar}}" alt="">
@@ -62,6 +62,8 @@
       console.log(dateConverte)
 
       y.innerHTML = dateConverte
+
+
     });
   </script>
 
