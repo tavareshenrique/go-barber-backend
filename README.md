@@ -1,6 +1,6 @@
 # goBarber
 
-Barber / salon scheduling project created in module 2 of the Rocketseat Bootcamp.Some parts were self-taught.
+barber / salon scheduling project created in module 2 of the Rocketseat Bootcamp. Some parts were self-taught.
 
 ## Compatibility
 
