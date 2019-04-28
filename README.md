@@ -49,7 +49,7 @@ With yarn:
 <table>
   <tr>
     <td align="center">
-      <a href="http://tavareshenrique.github.io">
+      <a href="http://github.com/tavareshenrique/">
         <img src="https://avatars1.githubusercontent.com/u/27022914?v=4" width="100px;" alt="Henrique Tavares"/>
         <br />
         <sub>
