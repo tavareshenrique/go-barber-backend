@@ -1,17 +1,22 @@
-const { User } = require('../models')
+import User from '../models/User';
 
 class UserController {
-  create (req, res) {
-    return res.render('auth/signup')
-  }
+  async store(req, res) {
+    const userExists = await User.findOne({ where: { email: req.body.email } });
 
-  async store (req, res) {
-    const { filename: avatar } = req.file
+    if (userExists) {
+      return res.status(400).json({ error: 'User already exists.' });
+    }
 
-    await User.create({ ...req.body, avatar })
+    const { id, name, email, provider } = await User.create(req.body);
 
-    return res.redirect('/')
+    return res.json({
+      id,
+      name,
+      email,
+      provider,
+    });
   }
 }
 
-module.exports = new UserController()
+export default new UserController();
