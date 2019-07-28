@@ -1,7 +1,7 @@
 
 # Go Barber Back-End
 
-Go Barber Back-End é uma app feito em NodeJS com Express durante o Bootcamp GoNode da Rocketseat.
+Go Barber Back-End é uma app feito em NodeJS com Express durante o Bootcamp GoNode da Rocketseat. Trata-se de um app que permite o agendamento de clientes com seus barbeiros/cabeleireiros.
 
 ## Instalando e Executando
 
